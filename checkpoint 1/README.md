@@ -1,11 +1,11 @@
 # Review Data Preprocessing and Analysis
 
-This project involves preprocessing and analyzing textual review data. The primary goal is to clean, normalize, and convert the data into numerical vectors for further analysis and machine learning tasks.
+In this checkpoint my goal is to clean, normalize, and convert the data into numerical vectors for further analysis and machine learning tasks.
 
 ## Steps in Preprocessing
 
 ### 1. **Loading Data**
-The dataset is sourced from a GitHub repository and loaded into the environment for processing.
+The dataset is sourced from our mentors and loaded into the environment for processing.
 
 ### 2. **Data Cleaning**
 - **Handling Missing Values**: Missing values were removed or imputed to ensure a clean dataset.
@@ -30,8 +30,8 @@ The text data was converted into numerical vectors for machine learning:
 - **Embeddings**: Dense representations capturing semantic relationships between words using pre-trained models like GloVe.
 
 ## Dataset Export
-The preprocessed dataset was saved into a CSV file for future use in machine learning and analytical tasks.
+The preprocessed dataset was saved into a CSV file for future use in future work.
 
 ## Key Learnings and Recommendations
-- **Method Selection**: TF-IDF or Word Embeddings are recommended for nuanced tasks like sentiment analysis or context understanding.
+- **Method Selection**: Word Embeddings is use for this tasks like sentiment analysis or context understanding.
 - **Scalability**: Preprocessing steps like tokenization, stopword removal, and lemmatization significantly improve dataset quality and model performance.
