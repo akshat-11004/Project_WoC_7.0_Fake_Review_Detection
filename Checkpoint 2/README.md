@@ -130,6 +130,7 @@ Classification Report for Logistic Regression:
    macro avg       0.73      0.73      0.73      8084
 weighted avg       0.73      0.73      0.73      8084
 
+```
 ## **Saving and Loading Models**
 
 After training the models, they are saved using `joblib`. This ensures that the models can be loaded and used for prediction without the need for retraining.
