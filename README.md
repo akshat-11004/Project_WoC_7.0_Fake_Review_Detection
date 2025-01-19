@@ -120,8 +120,10 @@ This section describes the model and pipeline used to detect fake reviews in the
     - **F1-Score**: Harmonic mean of precision and recall.
     - **Accuracy**: Overall correctness of the model.
 
-    **Example Output:**
-    ```plaintext
+### **Example Output:**
+
+```plaintext
+
 Training and evaluating Random Forest...
 Classification Report for Random Forest:
               precision    recall  f1-score   support
@@ -133,7 +135,6 @@ Classification Report for Random Forest:
    macro avg       0.75      0.75      0.75      8084
 weighted avg       0.75      0.75      0.75      8084
 
-
 Training and evaluating SVM...
 Classification Report for SVM:
               precision    recall  f1-score   support
@@ -144,7 +145,6 @@ Classification Report for SVM:
     accuracy                           0.73      8084
    macro avg       0.73      0.73      0.73      8084
 weighted avg       0.73      0.73      0.73      8084
-
 
 Training and evaluating Logistic Regression...
 Classification Report for Logistic Regression:
