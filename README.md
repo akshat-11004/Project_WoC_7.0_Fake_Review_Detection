@@ -1,6 +1,6 @@
 # Fake Review Detection Project
 
-This project aims to detect fake reviews using machine learning techniques. The workflow includes data preprocessing, feature engineering, model training, and evaluation.
+This project aims to detect fake reviews using Machine Learning techniques. The workflow includes data preprocessing, feature engineering, model training, and evaluation.
 
 ## Data Preprocessing
 
@@ -122,7 +122,7 @@ This section describes the model and pipeline used to detect fake reviews in the
 
     **Example Output:**
     ```plaintext
-    Training and evaluating Random Forest...
+Training and evaluating Random Forest...
 Classification Report for Random Forest:
               precision    recall  f1-score   support
 
@@ -157,7 +157,7 @@ Classification Report for Logistic Regression:
    macro avg       0.73      0.73      0.73      8084
 weighted avg       0.73      0.73      0.73      8084
 
-    ```
+```
 
 ### Saving and Loading Models:
 After training the models, they are saved using `joblib`, enabling future predictions without retraining.
