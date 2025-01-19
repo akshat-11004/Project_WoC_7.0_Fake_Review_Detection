@@ -92,6 +92,44 @@ The training process involves splitting the dataset into training and testing se
      - **F1-Score**: The harmonic mean of precision and recall.
      - **Accuracy**: The overall correctness of the model.
 
+Training and evaluating Random Forest...
+Classification Report for Random Forest:
+
+              precision    recall  f1-score   support
+
+           0       0.73      0.80      0.76      4055
+           1       0.77      0.70      0.73      4029
+
+    accuracy                           0.75      8084
+   macro avg       0.75      0.75      0.75      8084
+weighted avg       0.75      0.75      0.75      8084
+
+
+Training and evaluating SVM...
+Classification Report for SVM:
+
+              precision    recall  f1-score   support
+
+           0       0.73      0.74      0.73      4055
+           1       0.73      0.72      0.73      4029
+
+    accuracy                           0.73      8084
+   macro avg       0.73      0.73      0.73      8084
+weighted avg       0.73      0.73      0.73      8084
+
+
+Training and evaluating Logistic Regression...
+Classification Report for Logistic Regression:
+
+              precision    recall  f1-score   support
+
+           0       0.73      0.73      0.73      4055
+           1       0.73      0.72      0.72      4029
+
+    accuracy                           0.73      8084
+   macro avg       0.73      0.73      0.73      8084
+weighted avg       0.73      0.73      0.73      8084
+
 ## Saving and Loading Models
 
 After training the models, they are saved using `joblib`. This ensures that the models can be loaded and used for prediction without the need for retraining.
