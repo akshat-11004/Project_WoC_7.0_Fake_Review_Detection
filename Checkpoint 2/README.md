@@ -92,7 +92,7 @@ The training process involves splitting the dataset into training and testing se
      - **F1-Score**: The harmonic mean of precision and recall.
      - **Accuracy**: The overall correctness of the model.
 
-### Example Output of the Classification Report:
+## **Example Output of the Classification Report**:
 
 ```plaintext
 Training and evaluating Random Forest...
@@ -130,7 +130,7 @@ Classification Report for Logistic Regression:
    macro avg       0.73      0.73      0.73      8084
 weighted avg       0.73      0.73      0.73      8084
 
-## Saving and Loading Models
+## **Saving and Loading Models**
 
 After training the models, they are saved using `joblib`. This ensures that the models can be loaded and used for prediction without the need for retraining.
 
