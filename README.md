@@ -102,7 +102,7 @@ This section describes the model and pipeline used to detect fake reviews in the
     ```
 
 4. **Hyperparameter Tuning (Optional)**:
-   You can perform hyperparameter tuning using GridSearchCV to find the best model parameters, which can enhance performance.
+   I can perform hyperparameter tuning using GridSearchCV to find the best model parameters, which can enhance performance.
 
     ```python
     from sklearn.model_selection import GridSearchCV
