@@ -1,0 +1,85 @@
+from flask import Flask, render_template, request
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+
+app = Flask(__name__)
+
+# Set up Selenium Chrome options
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Run headless (no UI)
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--disable-gpu")
+chrome_options.add_argument("--window-size=1920,1080")
+
+# Function to scrape all Amazon reviews
+def get_amazon_reviews(product_url, max_pages=10):
+    reviews_list = []
+    
+    # Set up Selenium WebDriver
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+    
+    try:
+        driver.get(product_url)
+        time.sleep(3)  # Allow time for the page to load
+
+        # **Step 1: Click the "See More Reviews" button if available**
+        try:
+            see_more_reviews_button = driver.find_element(By.XPATH, "//a[contains(@data-hook, 'see-all-reviews-link-foot')]")
+            see_more_reviews_url = see_more_reviews_button.get_attribute("href")
+            driver.get(see_more_reviews_url)
+            time.sleep(3)
+        except Exception as e:
+            print("⚠️ Could not find 'See More Reviews' button:", e)
+            return ["No reviews found."]
+
+        # **Step 2: Scrape multiple pages of reviews**
+        page = 1
+        while page <= max_pages:
+            print(f"📄 Scraping page {page}...")
+
+            # Scroll down to load reviews
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(2)
+
+            # Extract reviews
+            review_elements = driver.find_elements(By.XPATH, "//span[@data-hook='review-body']")
+            for review in review_elements:
+                reviews_list.append(review.text.strip())
+
+            print(f"✅ Collected {len(reviews_list)} reviews so far...")
+
+            # **Step 3: Click "Next Page"**
+            try:
+                next_button = driver.find_element(By.XPATH, "//li[@class='a-last']/a")
+                next_button.click()
+                time.sleep(3)  # Allow next page to load
+                page += 1
+            except:
+                print("🚫 No more pages found.")
+                break  # Stop if no "Next Page" button is found
+
+    except Exception as e:
+        print(f"⚠️ Error fetching reviews: {e}")
+    
+    finally:
+        driver.quit()  # Close browser session
+    
+    return reviews_list or ["No reviews found."]
+
+@app.route("/", methods=["GET", "POST"])
+def index():
+    reviews = []
+    if request.method == "POST":
+        product_url = request.form["product_url"]
+        reviews = get_amazon_reviews(product_url, max_pages=10)
+    return render_template("index.html", reviews=reviews)
+
+if __name__ == "__main__":
+    app.run(debug=True)
