@@ -43,7 +43,7 @@ This project aims to detect fake reviews using **Machine Learning techniques**. 
 
 ### Models Used
 
-1. **Random Forest Classifier** – Ensemble method for improved accuracy.
+1. **Naïve Bayes Classifier** – A probabilistic approach for text classification.
 2. **Support Vector Machine (SVM)** – Finds optimal hyperplane for classification.
 3. **Logistic Regression** – Linear classifier for binary classification.
 
@@ -55,13 +55,13 @@ This project aims to detect fake reviews using **Machine Learning techniques**. 
 * **Hyperparameter Tuning** – GridSearchCV for best parameters.
 * **Model Saving** – Models saved using `joblib` for later use.
 
-**Example Results (Random Forest):**
+**Example Results(SVM):**
 
 ```
-Accuracy: ~75%  
-Precision: 0.73 - 0.77  
-Recall: 0.70 - 0.80  
-F1-Score: 0.73 - 0.76  
+Accuracy: ~88%  
+Precision: 0.87 - 0.90
+Recall: 0.86 - 0.90  
+F1-Score: 0.88 
 ```
 
 ---
